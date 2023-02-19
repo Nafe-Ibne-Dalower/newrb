@@ -26,7 +26,7 @@ app.get('/', (req, res)=>{
 
 app.post('/', (req, res)=>{
     n = req.body.fn
-    Dof = req.body.dof
+    dof = req.body.dof
     gen = req.body.gen
     age = req.body.age
     sn = req.body.sn
@@ -34,6 +34,11 @@ app.post('/', (req, res)=>{
     tel = req.body.tel
     mail = req.body.mail
     
+        let outputToWrite = `\n{Name: ${n}, dof: ${dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`
+        fs.appendFileSync('Database.txt', outputToWrite, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
     res.status(200).sendFile(path.join(__dirname,'static/congratulation.html'))
 })
 
