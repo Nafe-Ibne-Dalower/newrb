@@ -36,10 +36,10 @@ app.post('/', (req, res)=>{
     mail = req.body.mail
     res.status(200).sendFile(path.join(__dirname,'static/congratulation.html'))
 })
-//     console.log(`\n{Name: ${n}, Dof: ${dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`)
-//     fs.appendFileSync('Database.txt', outputToWrite, function (err) {
-//         if (err) throw err;
-//         console.log('Saved!');
+    console.log(`\n{Name: ${n}, Dof: ${dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`)
+    fs.appendFileSync('database.txt', outputToWrite, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
 
 const port = process.env.PORT || 3000;
 
