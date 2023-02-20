@@ -15,12 +15,13 @@ app.use(express.static(path.join(__dirname,'static'))) // For serving static fil
 // ENDPOINTS
 app.get('/', (req, res)=>{  
     res.status(200).sendFile(path.join(__dirname,'static'));
-    // res.status(200).sendFile(path.join(__dirname,'static/index.html'));
+    res.status(200).sendFile(path.join(__dirname,'static/index.html'));
     res.status(200).sendFile(path.join(__dirname,'static/Registration-form-RBMCAG.html'));
     res.status(200).sendFile(path.join(__dirname,'static/404.html'));
     res.status(200).sendFile(path.join(__dirname,'static/assets'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/style.css'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/form-css.css'));
+    res.status(200).sendfile(path.join(__dirname, 'Database.txt'));
 
 })
 
@@ -35,10 +36,10 @@ app.post('/', (req, res)=>{
     mail = req.body.mail
     res.status(200).sendFile(path.join(__dirname,'static/congratulation.html'))
 })
-//     console.log(`\n{Name: ${n}, Dof: ${Dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`)
-//     fs.appendFileSync('Database.txt', outputToWrite, function (err) {
-//         if (err) throw err;
-//         console.log('Saved!');
+    console.log(`\n{Name: ${n}, Dof: ${dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`)
+    fs.appendFileSync('Database.txt', outputToWrite, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
 
 const port = process.env.PORT || 3000;
 
