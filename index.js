@@ -15,31 +15,33 @@ app.use(express.static(path.join(__dirname,'static'))) // For serving static fil
 // ENDPOINTS
 app.get('/', (req, res)=>{  
     res.status(200).sendFile(path.join(__dirname,'static'));
-    res.status(200).sendFile(path.join(__dirname,'static/index.html'));
+    // res.status(200).sendFile(path.join(__dirname,'static/index.html'));
     res.status(200).sendFile(path.join(__dirname,'static/Registration-form-RBMCAG.html'));
     res.status(200).sendFile(path.join(__dirname,'static/404.html'));
     res.status(200).sendFile(path.join(__dirname,'static/assets'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/style.css'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/form-css.css'));
-    res.status(200).sendfile(path.join(__dirname, 'Database.txt'));
 
 })
 
 app.post('/', (req, res)=>{
     n = req.body.fn
-    dof = req.body.dof
+    Dof = req.body.dof
     gen = req.body.gen
     age = req.body.age
     sn = req.body.sn
     cls = req.body.cls
     tel = req.body.tel
     mail = req.body.mail
-    res.status(200).sendFile(path.join(__dirname,'static/congratulation.html'))
-})
-    console.log(`\n{Name: ${n}, Dof: ${dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`)
-    fs.appendFileSync('database.txt', outputToWrite, function (err) {
+    let dirForFile = path.join(__dirname, 'database.txt');
+    let outputToWrite  = `\n{Name: ${n}, Dof: ${Dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`
+    fs.appendFileSync(dirForFile, outputToWrite, function (err) {
         if (err) throw err;
         console.log('Saved!');
+    })
+    res.status(200).sendFile(path.join(__dirname,'static/congratulation.html'))
+});
+
 
 const port = process.env.PORT || 3000;
 
