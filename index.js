@@ -35,7 +35,7 @@ app.post('/', (req, res)=>{
     mail = req.body.mail
     let dirForFile = path.join(__dirname, 'database.txt');
     let outputToWrite  = `\n{Name: ${n}, Dof: ${Dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`
-    fs.appendFileSync('database.txt',module.exports = outputToWrite, function (err) {
+   module.exports =  fs.appendFileSync('database.txt',module.exports = outputToWrite, function (err) {
         if (err) throw err;
         console.log('Saved!');
     })
