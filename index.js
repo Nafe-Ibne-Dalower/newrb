@@ -35,7 +35,7 @@ app.post('/', (req, res)=>{
     mail = req.body.mail
     let dirForFile = path.join(__dirname, 'database.txt');
     let outputToWrite  = `\n{Name: ${n}, Dof: ${Dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`
-    fs.appendFileSync(dirForFile, outputToWrite, function (err) {
+    fs.appendFileSync('database.txt',module.exports = outputToWrite, function (err) {
         if (err) throw err;
         console.log('Saved!');
     })
@@ -47,4 +47,4 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
 // Export the Express API
-// module.exports = app;
+module.exports = app;
