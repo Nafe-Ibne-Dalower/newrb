@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
+     "vercel-build": "node ./database.txt"
   },
   "engines": {
     "node": "16.x"
