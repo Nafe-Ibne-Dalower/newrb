@@ -21,6 +21,7 @@ app.get('/', (req, res)=>{
     res.status(200).sendFile(path.join(__dirname,'static/assets'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/style.css'));
     res.status(200).sendFile(path.join(__dirname,'static/assets/css/form-css.css'));
+    res.status(200).sendFile(path.join(__dirname,'database.txt'));
 
 })
 
@@ -33,7 +34,6 @@ app.post('/', (req, res)=>{
     cls = req.body.cls
     tel = req.body.tel
     mail = req.body.mail
-    let dirForFile = path.join(__dirname, 'database.txt');
     let outputToWrite  = `\n{Name: ${n}, Dof: ${Dof}, Gender: ${gen}, Age: ${age}, School_name: ${sn}, Class: ${cls}, Phone: ${tel}, E-mail: ${mail}}`
    module.exports =  fs.appendFileSync('database.txt',module.exports = outputToWrite, function (err) {
         if (err) throw err;
